@@ -27,6 +27,18 @@
                 </div>
                 <div class="col-lg-6 ab-part ab-right">
                     <h3 class="ab-title">技能评估</h3>
+                    <div class="chart" data-percent="73" data-scale-color="#ffb400">
+                        <span class="percent-text">73%</span>
+                        <span class="des-text">HTML</span>
+                    </div>
+                    <div class="chart" data-percent="90" data-scale-color="#ffb400">
+                        <span class="percent-text">90%</span>
+                        <span class="des-text">CSS</span>
+                    </div>
+                    <div class="chart" data-percent="85" data-scale-color="#ffb400">
+                        <span class="percent-text">85%</span>
+                        <span class="des-text">JS</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -41,6 +53,18 @@
             return {
                 aboutData:aboutData
             }
+        },
+        mounted:function () {
+            $('.chart').easyPieChart({
+                barColor:'#10A7AF',
+                trackColor:'#f2f2f2',
+                scaleColor:'#dfe0e0',
+                scaleLength:0,
+                lineCap:'round',
+                lineWidth:8,
+                size:110,
+                animate:{ duration: 1000, enabled: true }
+            });
         }
     }
 </script>
@@ -88,6 +112,36 @@
             background-size: cover;
             .ab-title{
                 color:white;
+            }
+            .chart{
+                height: 110px;
+                padding-left: 150px;
+                text-align: center;
+                line-height: 110px;
+                position: relative;
+                color:white;
+                margin-bottom: 55px;
+                &:last-of-type{
+                    margin-bottom: 0;
+                }
+                canvas{
+                    position: absolute;
+                    left: 40px;
+                    top:0;
+                }
+                span.percent-text{
+                    position: absolute;
+                    left: 40px;
+                    line-height: 110px;
+                    width: 110px;
+                    font-weight: bold;
+                    font-size: 20px;
+                }
+                span.des-text{
+                    font-weight: bold;
+                    font-size: 20px;
+                    color: #10A7AF;
+                }
             }
         }
     }
